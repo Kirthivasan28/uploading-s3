@@ -26,6 +26,6 @@ def main():
         Key=aws_key
     )
     print ('Done uploading')
-
+    print(local_path,'local path value')
 
 main()
