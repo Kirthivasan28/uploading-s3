@@ -6,7 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
 
     -id: files
     -uses: jitterbit/get-changed-files@v1
