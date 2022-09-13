@@ -8,10 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - uses: actions/checkout@v1
-    - name: Release to S3
-      # run: bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip"
-      run: |
-          git diff
-          git --version
+    -id: files
+    -uses: jitterbit/get-changed-files@v1
+    -run: |
+        for changed_file in ${{steps.files.outputs.all}}; do
+          echo "Do something with this ${changed_file}."
+        done
+
+    # - uses: actions/checkout@v1
+    # - name: Release to S3
+    #   # run: bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip"
+    #   run: |
+    #       git diff
+    #       git --version
+
+
 
