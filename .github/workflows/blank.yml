@@ -4,8 +4,8 @@ on:
     branches: ['main']
     paths: ['packages/test1/**','packages/test2/**' ]
 jobs:
-  build:
   if: github.paths == ['packages/test1/**']
+  build:
     runs-on: ubuntu-latest
     steps:
 
