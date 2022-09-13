@@ -1,8 +1,8 @@
 name: ReleaseCI
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
+    paths: ['packages/test1/**']
 jobs:
   build:
     runs-on: ubuntu-latest
