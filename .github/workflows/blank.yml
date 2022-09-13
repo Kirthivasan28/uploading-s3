@@ -4,12 +4,13 @@ on:
     branches: ['main']
     paths: ['packages/test1/**','packages/test2/**' ]
 jobs:
-  if: ['packages/test1/**'] in paths:
   build:
     runs-on: ubuntu-latest
     steps:
 
     - uses: actions/checkout@v1
     - name: Release to S3
-      run: bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip"
+      # run: bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip"
+      run: |
+          git diff
 
