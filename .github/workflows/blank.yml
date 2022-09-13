@@ -2,10 +2,10 @@ name: ReleaseCI
 on:
   push:
     branches: ['main']
-    paths: ['packages/test1/**']
+    paths: ['packages/test1/**','packages/test2/**' ]
 jobs:
   build:
-  if: paths: ['packages/test1/**']
+  if: github.paths == ['packages/test1/**']
     runs-on: ubuntu-latest
     steps:
 
