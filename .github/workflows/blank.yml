@@ -5,6 +5,7 @@ on:
     paths: ['packages/test1/**']
 jobs:
   build:
+  if: paths: ['packages/test1/**']
     runs-on: ubuntu-latest
     steps:
 
