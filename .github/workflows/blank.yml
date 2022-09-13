@@ -2,7 +2,7 @@ name: ReleaseCI
 on:
   push:
     branches: ['main']
-    paths: ['packages/test1/**','packages/test2/**' ]
+    # paths: ['packages/test1/**','packages/test2/**' ]
 jobs:
   build:
     runs-on: ubuntu-latest
