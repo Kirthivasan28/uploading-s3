@@ -7,14 +7,12 @@ folder_path=$6
 # Remove any existing versions of a ZIP
 rm -rf $local_path
 
-rm -rf $folder_path
-
 
 # Create a zip of the current directory.
 zip -r $local_path packages/test1 
 
 
-zip -r $folder_path packages/test2
+
 
 # Install required dependencies for Python script.
 pip3 install boto3
@@ -22,7 +20,8 @@ pip3 install boto3
 # Run upload script
 python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path
 
+zip -r $local_path packages/test2
 
 pip3 install boto3
 
-python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path $folder_path
+python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path 
