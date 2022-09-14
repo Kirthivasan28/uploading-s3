@@ -2,7 +2,7 @@ import boto3
 import sys
 
 def main():
-    print(len(sys.argv),'arguments length')
+    print(sys.argv,'arguments length')
     if (len(sys.argv) < 6):
         print ('Error: Required 5 arguments.')
         # Checks for 6 because the script path is in position 0. So len is 6
