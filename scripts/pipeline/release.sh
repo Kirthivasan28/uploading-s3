@@ -10,9 +10,9 @@ rm -rf $local_path
 
 
 # Create a zip of the current directory.
-zip -r $local_path packages/test3 
-echo "$local_path"
-echo "Kirthivasan"
+zip -r $local_path packages/test3
+zip -r $folder_path packages/test2
+echo "$folder_path"
 # Install required dependencies for Python script.
 pip3 install boto3
 
