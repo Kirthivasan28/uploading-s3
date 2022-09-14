@@ -5,20 +5,6 @@
 #     # paths: ['packages/test1/**','packages/test2/**' ]
 
 
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v1
-#     - name: Release to S3
-#       run: 
-#       |
-#         bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip"
-        
-#         bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp2.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp2.zip"
-      
-
-name: Has Changes
 jobs:
   has-changes:
     runs-on: ubuntu-latest
