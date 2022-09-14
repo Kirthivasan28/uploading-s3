@@ -17,6 +17,7 @@ def main():
     if ('myapp2.zip' in sys.argv):
         print('True path changed..')
         local_path=sys.argv[5]
+        
     session = boto3.Session(
         aws_access_key_id=aws_access_key,
         aws_secret_access_key=aws_access_secret,
