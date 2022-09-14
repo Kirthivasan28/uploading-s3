@@ -3,7 +3,7 @@ import sys
 
 def main():
     print(sys.argv,'arguments length')
-    if (len(sys.argv) < 6):
+    if (len(sys.argv) < 8):
         print ('Error: Required 5 arguments.')
         # Checks for 6 because the script path is in position 0. So len is 6
         # for 5 arguments.
@@ -14,7 +14,9 @@ def main():
     aws_access_key=sys.argv[3]
     aws_access_secret=sys.argv[4]
     local_path=sys.argv[5]
-
+    if(len(sys.argv)==7):
+        local_path=sys.argv[6]
+        
     session = boto3.Session(
         aws_access_key_id=aws_access_key,
         aws_secret_access_key=aws_access_secret,
