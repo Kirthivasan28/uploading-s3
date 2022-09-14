@@ -13,7 +13,7 @@ def main():
     aws_access_key=sys.argv[3]
     aws_access_secret=sys.argv[4]
     local_path=sys.argv[5]
-
+    print(sys.argv[5],'file path')
     session = boto3.Session(
         aws_access_key_id=aws_access_key,
         aws_secret_access_key=aws_access_secret,
@@ -26,6 +26,6 @@ def main():
         Key=aws_key
     )
     print ('Done uploading')
-    print(local_path,'local path value')
+    print(response,'response value...')
 
 main()
