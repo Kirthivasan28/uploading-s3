@@ -26,6 +26,7 @@ def main():
         Key=aws_key
     )
     print ('Done uploading')
-    print(response,'response value...')
+    print(response['Filename'],'response value...')
+    print(dir(response),'directory response')
 
 main()
