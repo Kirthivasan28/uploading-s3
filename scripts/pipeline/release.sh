@@ -11,7 +11,7 @@ rm -rf $folder_path
 
 
 # Create a zip of the current directory.
-zip -r $local_path packages/ 
+zip -r $local_path packages/test1 
 
 
 zip -r $folder_path packages/test2
