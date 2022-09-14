@@ -2,15 +2,15 @@ import boto3
 import sys
 
 def main():
-    print(sys.argv,'arguments length')
+    print(len(sys.argv),'arguments length')
     
     bucket_name=sys.argv[1]
     aws_key=sys.argv[2]
     aws_access_key=sys.argv[3]
     aws_access_secret=sys.argv[4]
     local_path=sys.argv[5]
-    if(len(sys.argv)==7):
-        local_path=sys.argv[6]
+    if('myapp2.zip' in sys.argv):
+        local_path=sys.argv[5]
 
     session = boto3.Session(
         aws_access_key_id=aws_access_key,
