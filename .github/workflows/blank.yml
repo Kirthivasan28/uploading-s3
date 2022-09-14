@@ -1,29 +1,38 @@
-name: CI
-
+name: ReleaseCI
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: ['main']
+    paths: ['packages/test1/**']
+
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # windows-latest | macos-latest
-    name: Test changed-files
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-      
-      # Example 1
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v29.0.7
+    - uses: actions/checkout@v1
+    - name: Release to S3
+      run: 
+      |
+        bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip"
+        
 
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
+name: ReleaseCI
+on:
+  push:
+    branches: ['main']
+    paths: ['packages/test2/**']
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Release to S3
+      run: 
+      |
+        bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp2.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp2.zip"
+
+      
+
+
