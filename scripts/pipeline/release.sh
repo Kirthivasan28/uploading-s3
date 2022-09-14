@@ -15,6 +15,3 @@ pip3 install boto3
 # Run upload script
 python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path
 
-zip -r $local_path packages/test2
-pip3 install boto3
-python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path
